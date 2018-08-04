@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
     if (this.formLogin.invalid) { return this._alert.notify('กรุณากรอกข้อมูลให้ครบ'); }
+
   }
 
   onRegister(): void {
