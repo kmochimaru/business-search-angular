@@ -1,0 +1,17 @@
+<article class="content">
+  <header class="text-center">
+    <h1>ผลการค้นหา </h1>
+    <h4>พบทั้งหมด {{ results.length }} รายการ</h4>
+  </header>
+  <br>
+  <div class="d-flex flex-wrap">
+    <div *ngFor="let result of results" class="flex-item">
+      <div>
+        <a>
+          <img src="{{ AppURL.Img + result.result_img }}">
+          <p>{{ result.result_name }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>

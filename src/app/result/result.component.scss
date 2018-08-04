@@ -1,0 +1,59 @@
+.content {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  width: 45px;
+  height: 45px;
+}
+
+.d-flex {
+  text-align: center;
+}
+
+.d-flex:after {
+  content: "";
+  flex: auto;
+}
+
+.flex-item {
+  padding-top: 20px;
+  width: 10%;
+}
+
+@media screen and (min-width: 200px) and (max-width: 480px) {
+  .d-flex {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .flex-item {
+    width: 100%;
+    margin-left: 30px;
+  }
+
+  p {
+    display: inline;
+  }
+
+  p:before {
+    content: "\00a0\00a0";
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 680px) {
+  .flex-item {
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 681px) and (max-width: 900px) {
+  .flex-item {
+    width: 25%;
+  }
+}

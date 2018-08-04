@@ -1,0 +1,100 @@
+@import "~@ng-select/ng-select/themes/material.theme.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+body, span, mat-cell, mat-header-cell, .mat-dialog-title, input{
+  font-family: 'Kanit', sans-serif !important;
+}
+
+body {
+  position: relative;
+}
+
+fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.fixed-header {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100% !important;
+}
+
+.white-text {
+  color: white;
+  text-decoration: none;
+}
+
+.black-text {
+  color: black;
+}
+
+.text-center {
+  text-align: center;
+}
+
+mat-header-cell,
+mat-cell {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-dialog-actions>.btn-success {
+  background-color: #B2DFDB;
+  color: white;
+}
+
+.mat-dialog-actions>.btn-cancel {
+  background-color: #FFCDD2;
+  color: white;
+}
+
+.mat-dialog-actions>.btn-gray {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+
+// .mat-dialog-actions {
+//   text-align: end;
+// }
+
+//Button
+.btn-success:hover {
+  transition: background-color 0.8s ease;
+  background-color: #00897B;
+  color: white;
+}
+
+.btn-cancel:hover {
+  transition: background-color 0.8s ease;
+  background-color: #B71C1C;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-gray:hover {
+  transition: background-color 0.8s ease;
+  background-color: #B0BEC5;
+  color: white;
+  font-weight: bold;
+}
+
+//Button Create Edit Delete
+.mat-mini-fab.color-success {
+  background: #00897B;
+}
+
+.mat-mini-fab.color-warn {
+  background: #FF9800;
+}
+
+.mat-mini-fab.color-danger {
+  background: #B71C1C;
+}
+
+//Flex
+.d-flex {
+  display: flex;
+}

@@ -1,0 +1,61 @@
+<app-content>
+  <article class="container">
+    <h4 class="text-center">หมวดหมู่ย่อย</h4>
+    <section class="text-right">
+      <button mat-fab matTooltip="เพิ่มหมวดหมู่ย่อย" matTooltipShowDelay="200" class="mb-3" color="primary" (click)="newResult()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </section>
+    <section>
+      <div class="table-container mat-elevation-z8">
+        <div class="filter-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="ค้นหา">
+          </mat-form-field>
+        </div>
+        <mat-table #table [dataSource]="dataSource" matSort>
+          <!-- Result Id Column -->
+          <ng-container matColumnDef="result_id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Result Id </mat-header-cell>
+            <mat-cell *matCellDef="let results" align="center"> {{ results.result_id}} </mat-cell>
+          </ng-container>
+          <!-- Result Name Column -->
+          <ng-container matColumnDef="result_name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Result Name </mat-header-cell>
+            <mat-cell *matCellDef="let results" align="center"> {{ results.result_name}} </mat-cell>
+          </ng-container>
+          <!-- Result Img Column -->
+          <ng-container matColumnDef="result_img">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Result Img </mat-header-cell>
+            <mat-cell *matCellDef="let results"> {{ results.result_img }} </mat-cell>
+          </ng-container>
+          <!-- Category Id Column -->
+          <ng-container matColumnDef="category_id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Category Id </mat-header-cell>
+            <mat-cell *matCellDef="let results"> {{ results.category_id }} </mat-cell>
+          </ng-container>
+
+          <!-- Edit/Delete Column -->
+          <ng-container matColumnDef="manage">
+            <mat-header-cell *matHeaderCellDef> จัดการข้อมูล </mat-header-cell>
+            <mat-cell *matCellDef="let results">
+              <button mat-mini-fab (click)="updateResult(results)" matTooltip="แก้ไขหมวดหมู่ย่อย" matTooltipShowDelay="200" class="color-warn">
+                <mat-icon class="white-text icon-size">edit</mat-icon>
+              </button>
+              &nbsp;
+              <button mat-mini-fab (click)="deleteResult(results.result_id, results.result_img) " matTooltip="ลบหมวดหมู่ย่อย" matTooltipShowDelay="200"
+                class="color-danger">
+                <mat-icon class="white-text icon-size ">delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <mat-paginator [length]="5" [pageSize]="5" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+      </div>
+    </section>
+  </article>
+</app-content>

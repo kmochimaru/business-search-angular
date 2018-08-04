@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="mat-dialog-header">
+    <h2 mat-dialog-title>แก้ไขหมวดหมู่ย่อย</h2>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+      <mat-form-field>
+        <input matInput placeholder="ชื่อหมวดหมู่ย่อย" [(ngModel)]="result.result_name" name="result_name">
+      </mat-form-field>
+      <img [hidden]="!previewHide" src="{{ currentImage }}">
+      <canvas [hidden]="previewHide" #preview></canvas>
+      <input class="mt-2 mb-2" name="result_img" type="file" (change)="onImageSelected($event)">
+      <mat-form-field>
+        <mat-select placeholder="เลือกหมวดหมู่หลัก" [(ngModel)]="result.category_id" name="category_id">
+          <mat-option *ngFor="let category of categories" [value]="category.category_id">{{ category.category_name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button class="btn-success" type="submit">แก้ไข</button>
+      <button mat-button class="btn-cancel" mat-dialog-close>ยกเลิก</button>
+    </mat-dialog-actions>
+  </form>
+</div>

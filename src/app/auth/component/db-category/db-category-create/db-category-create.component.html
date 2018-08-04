@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="mat-dialog-header">
+    <h2 mat-dialog-title>เพิ่มหมวดหมู่</h2>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+      <mat-form-field>
+        <input matInput placeholder="ชื่อหมวดหมู่" [(ngModel)]="category.category_name" name="category_name">
+      </mat-form-field>
+      <input class="mt-2 mb-2" name="category_img" type="file" (change)="onImageSelected($event)"  >
+      <mat-form-field>
+        <mat-select placeholder="เลือกจังหวัด" [(ngModel)]="category.province_id" name="province_id">
+          <mat-option *ngFor="let province of provinces" [value]="province.province_id">{{ province.province_name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button class="btn-success" type="submit">เพิ่ม</button>
+      <button mat-button class="btn-cancel" mat-dialog-close>ยกเลิก</button>
+    </mat-dialog-actions>
+  </form>
+</div>

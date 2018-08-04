@@ -1,0 +1,48 @@
+.content {
+  margin-top: 50px;
+}
+
+.page-header {
+  text-align: center;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+}
+
+a {
+  color: inherit;
+}
+
+.d-flex {
+  padding: 10px;
+}
+
+.d-flex:after {
+  content: "";
+  flex: auto;
+}
+
+.flex-item {
+  width: 20%;
+}
+
+@media screen and (min-width: 200px) and (max-width: 430px) {
+  img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .flex-item {
+    width: 33%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 431px) and (max-width: 630px) {
+  .flex-item {
+    width: 25%;
+  }
+}

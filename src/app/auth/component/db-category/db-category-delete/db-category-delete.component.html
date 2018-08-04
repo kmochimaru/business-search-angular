@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="mat-dialog-header"><h2 mat-dialog-title>ลบหมวดหมู่ รหัส: {{ category_id }}</h2></div>
+  <form (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+      <p>คุณแน่ใจว่าจะลบหมวดหมู่ รหัส {{ category_id }} ใช่ไหม?</p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button class="btn-cancel" type="submit">ใช่</button>
+      <button mat-button class="btn-gray" mat-dialog-close>ยกเลิก</button>
+    </mat-dialog-actions>
+  </form>
+</div>

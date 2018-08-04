@@ -1,0 +1,24 @@
+<article class="content">
+  <form (ngSubmit)="onSubmit()">
+    <section class="row">
+      <img class="float-none" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png"
+        alt="logo">
+    </section>
+
+    <section class="row">
+      <div class="col">
+        <div class="col-sm-9 col-md-5 col-lg-4 select">
+          <ng-select [(ngModel)]="provinceSelected" name="provinceSelected">
+            <ng-option *ngFor="let item of items" [value]="item.province_id">{{ item.province_name }}</ng-option>
+          </ng-select>
+        </div>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="col text-center">
+        <button class="btn btn-success" type="submit">ค้นหา</button>
+      </div>
+    </section>
+  </form>
+</article>
