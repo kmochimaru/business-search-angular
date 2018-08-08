@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-dialog-content >* {
+  width: 100%;
+}
+
+mat-form-field {
+  margin-top: 10px;
+}

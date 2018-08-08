@@ -1,7 +1,11 @@
+import { AuthURL } from './../auth/auth.url';
+import { AppURL } from './../app.url';
+import { AccountService } from './../shareds/account.service';
 import { AlertService } from './../shareds/alert.service';
 import { ValidatorsService } from './../shareds/validators.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare let $;
 
 @Component({
@@ -10,13 +14,17 @@ declare let $;
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  AppURL = AppURL;
+  AuthURL = AuthURL;
   formLogin: FormGroup;
   formRegister: FormGroup;
 
   constructor(
     private _builder: FormBuilder,
     private _validators: ValidatorsService,
-    private _alert: AlertService
+    private _alert: AlertService,
+    private _account: AccountService,
+    private _router: Router
   ) {
     this.initialFormLogin();
     this.initialFormRegister();
@@ -39,7 +47,14 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
     if (this.formLogin.invalid) { return this._alert.notify('กรุณากรอกข้อมูลให้ครบ'); }
-
+    this._account.isLogin(this.formLogin.value).subscribe(
+      res => {
+        if (res == '0') { return this._alert.notify('กรุณาตรวจสอบอีเมลกับรหัสผ่านอีกครั้ง', 'warning'); }
+          this._alert.notify('เข้าสู่ระบบสำเร็จ', 'success');
+          this._router.navigate(['', AppURL.Auth, AuthURL.Dashboard]);
+      },
+      err => { this._alert.notify(err, 'info'); }
+    );
   }
 
   onRegister(): void {

@@ -7,6 +7,7 @@
     <!-- This fills the remaining space of the current row -->
     <span class="fill-remaining-space"></span>
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+      <button mat-button [routerLink]="['/', AppURL.Auth, AuthURL.DbMember]">สมาชิก</button>
       <button mat-button [routerLink]="['/', AppURL.Auth, AuthURL.DbCategory]">หมวดหมู่หลัก</button>
       <button mat-button [routerLink]="['/', AppURL.Auth, AuthURL.DbResult]">หมวดหมู่ย่อย</button>
     </div>
@@ -15,6 +16,7 @@
     </button>
   </mat-toolbar>
   <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/', AppURL.Auth, AuthURL.DbMember]">สมาชิก</button>
     <button mat-menu-item [routerLink]="['/', AppURL.Auth, AuthURL.DbCategory]">หมวดหมู่หลัก</button>
     <button mat-menu-item [routerLink]="['/', AppURL.Auth, AuthURL.DbResult]">หมวดหมู่ย่อย</button>
   </mat-menu>

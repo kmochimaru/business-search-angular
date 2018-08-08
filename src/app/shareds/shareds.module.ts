@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ValidatorsService } from './validators.service';
+import { AccountService } from './account.service';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { ValidatorsService } from './validators.service';
   exports: [MaterialModule, FlexLayoutModule],
   providers: [
     ValidatorsService,
-    AlertService
+    AlertService,
+    AccountService
   ]
 })
 export class SharedsModule { }

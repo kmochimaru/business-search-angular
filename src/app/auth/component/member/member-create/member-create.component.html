@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="mat-dialog-header">
+    <h2 mat-dialog-title>เพิ่มสมาชิก</h2>
+  </div>
+  <form (submit)="onSubmit()">
+    <mat-dialog-content>
+      <mat-form-field>
+        <input matInput required name="firstname" [(ngModel)]="member.firstname" placeholder="ชื่อ">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput required name="lastname" [(ngModel)]="member.lastname" placeholder="นามสกุล">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput required type="email" name="email" [(ngModel)]="member.email" placeholder="อีเมล">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput required name="role" [(ngModel)]="member.role" placeholder="สิทธิ์ผู้ใช้" disabled>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput required type="password" name="password" [(ngModel)]="member.password" placeholder="รหัสผ่าน">
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button class="btn-success" type="submit">เพิ่ม</button>
+      <button mat-button class="btn-cancel" mat-dialog-close>ยกเลิก</button>
+    </mat-dialog-actions>
+  </form>
+</div>

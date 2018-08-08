@@ -8,7 +8,7 @@ import { AuthURL } from './auth.url';
 const RouteLists: Routes = [
   { path: '', redirectTo: AuthURL.Dashboard, pathMatch: 'full' },
   { path: AuthURL.Dashboard, component: DashboardComponent },
-  { path: AuthURL.Member, component: MemberComponent },
+  { path: AuthURL.DbMember, component: MemberComponent },
   { path: AuthURL.DbCategory, component: DbCategoryComponent },
   { path: AuthURL.DbResult, component: DbResultComponent }
 ];

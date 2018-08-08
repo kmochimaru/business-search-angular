@@ -16,6 +16,9 @@ import { DbResultCreateComponent } from './component/db-result/db-result-create/
 import { DbResultUpdateComponent } from './component/db-result/db-result-update/db-result-update.component';
 import { DbResultDeleteComponent } from './component/db-result/db-result-delete/db-result-delete.component';
 import { MemberComponent } from './component/member/member.component';
+import { MemberCreateComponent } from './component/member/member-create/member-create.component';
+import { MemberUpdateComponent } from './component/member/member-update/member-update.component';
+import { MemberDeleteComponent } from './component/member/member-delete/member-delete.component';
 
 @NgModule({
   imports: [
@@ -37,7 +40,10 @@ import { MemberComponent } from './component/member/member.component';
     DbResultCreateComponent,
     DbResultUpdateComponent,
     DbResultDeleteComponent,
-    MemberComponent
+    MemberComponent,
+    MemberCreateComponent,
+    MemberUpdateComponent,
+    MemberDeleteComponent
   ],
   entryComponents: [
     DbCategoryCreateComponent,
@@ -45,7 +51,10 @@ import { MemberComponent } from './component/member/member.component';
     DbCategoryDeleteComponent,
     DbResultCreateComponent,
     DbResultUpdateComponent,
-    DbResultDeleteComponent
+    DbResultDeleteComponent,
+    MemberCreateComponent,
+    MemberUpdateComponent,
+    MemberDeleteComponent
   ]
 })
 export class AuthModule { }
