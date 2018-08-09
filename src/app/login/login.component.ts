@@ -50,8 +50,8 @@ export class LoginComponent implements OnInit {
     this._account.isLogin(this.formLogin.value).subscribe(
       res => {
         if (res == '0') { return this._alert.notify('กรุณาตรวจสอบอีเมลกับรหัสผ่านอีกครั้ง', 'warning'); }
-          this._alert.notify('เข้าสู่ระบบสำเร็จ', 'success');
-          this._router.navigate(['', AppURL.Auth, AuthURL.Dashboard]);
+        this._alert.notify('เข้าสู่ระบบสำเร็จ', 'success');
+        this._router.navigate(['', AppURL.Auth, AuthURL.DbMember]);
       },
       err => { this._alert.notify(err, 'info'); }
     );
@@ -59,6 +59,31 @@ export class LoginComponent implements OnInit {
 
   onRegister(): void {
     if (this.formRegister.invalid) { return this._alert.notify('กรุณากรอกข้อมูลให้ครบ'); }
+    const date = new Date();
+    const curr_date = date.getDate();
+    const curr_month = date.getMonth() + 1;
+    const curr_year = date.getFullYear();
+    const currentDate = `${curr_date}/${curr_month}/${curr_year}`;
+    this.formRegister.value.updated_at = currentDate;
+    this.formRegister.value.created_at = currentDate;
+    this.formRegister.value.role = 'Admin';
+    this._account
+      .create(this.formRegister.value)
+      .subscribe(res => {
+        // Check Duplicate
+        if (res.errorInfo == null) {
+          this._alert.notify('ลงทะเบียนสำเร็จ', 'success');
+          setTimeout(() => {
+            location.reload();
+          }, 1800);
+        } else {
+          if (res.errorInfo[1] == '1062') { return this._alert.notify('อีเมลนี้มีอยู่ในระบบแล้ว', 'warning'); }
+        }
+      },
+        err => {
+          this._alert.notify(err, 'danger');
+        }
+      );
   }
 
   private initialFormLogin() {

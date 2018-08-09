@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthURL } from './auth.url';
 
 const RouteLists: Routes = [
-  { path: '', redirectTo: AuthURL.Dashboard, pathMatch: 'full' },
+  { path: '', redirectTo: AuthURL.DbMember, pathMatch: 'full' },
   { path: AuthURL.Dashboard, component: DashboardComponent },
   { path: AuthURL.DbMember, component: MemberComponent },
   { path: AuthURL.DbCategory, component: DbCategoryComponent },

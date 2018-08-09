@@ -1,7 +1,7 @@
 <nav>
   <mat-toolbar color="primary">
     <span>
-      <a class="white-text" [routerLink]="['/', AppURL.Auth, AuthURL.Dashboard]">Business Search</a>
+      <a class="white-text" [routerLink]="['/', AppURL.Auth, AuthURL.DbMember]">Business Search</a>
     </span>
     <span class="fill-remaining-space"></span>
     <!-- This fills the remaining space of the current row -->
@@ -10,6 +10,7 @@
       <button mat-button [routerLink]="['/', AppURL.Auth, AuthURL.DbMember]">สมาชิก</button>
       <button mat-button [routerLink]="['/', AppURL.Auth, AuthURL.DbCategory]">หมวดหมู่หลัก</button>
       <button mat-button [routerLink]="['/', AppURL.Auth, AuthURL.DbResult]">หมวดหมู่ย่อย</button>
+      <button mat-button (click)="onLogout()">ออกระบบ</button>
     </div>
     <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
       <mat-icon>menu</mat-icon>
@@ -19,5 +20,6 @@
     <button mat-menu-item [routerLink]="['/', AppURL.Auth, AuthURL.DbMember]">สมาชิก</button>
     <button mat-menu-item [routerLink]="['/', AppURL.Auth, AuthURL.DbCategory]">หมวดหมู่หลัก</button>
     <button mat-menu-item [routerLink]="['/', AppURL.Auth, AuthURL.DbResult]">หมวดหมู่ย่อย</button>
+    <button mat-menu-item (click)="onLogout()">ออกระบบ</button>
   </mat-menu>
 </nav>

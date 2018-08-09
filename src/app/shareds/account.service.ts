@@ -43,8 +43,18 @@ export class AccountService {
     return this._http.get<IMember[]>(`${API_URL}/detail.php`, { params: httpParams });
   }
 
+  isAuthen(): any {
+    const httpParams = new HttpParams()
+      .set('action', 'CheckAuthen');
+    return this._http.get(`${API_URL}/authentication.php`, { params: httpParams });
+  }
+
   findAll(): Observable<IMember[]> {
     return this._http.get<IMember[]>(`${API_URL}/read.php`);
+  }
+
+  logout(): any {
+    return this._http.get(`${API_URL}/logout.php`);
   }
 
 }

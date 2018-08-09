@@ -38,12 +38,18 @@ export class MemberCreateComponent {
     this._account
       .create(this.member)
       .subscribe(res => {
-        this._alert.notify('เพิ่มสมาชิกสำเร็จ', 'success');
+       // Check Duplicate
+        if (res.errorInfo == null) {
+          this._alert.notify('เพิ่มสมาชิกสำเร็จ', 'success');
+          this.dialogRef.close();
+        } else {
+          if (res.errorInfo[1] == '1062') { return this._alert.notify('อีเมลนี้มีอยู่ในระบบแล้ว', 'warning'); }
+        }
       },
         err => {
           this._alert.notify(err, 'danger');
+          this.dialogRef.close();
         }
       );
-    this.dialogRef.close();
   }
 }
