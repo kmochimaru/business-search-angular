@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     if (this.formLogin.invalid) { return this._alert.notify('กรุณากรอกข้อมูลให้ครบ'); }
     this._account.isLogin(this.formLogin.value).subscribe(
       res => {
-        if (res == '0') { return this._alert.notify('กรุณาตรวจสอบอีเมลกับรหัสผ่านอีกครั้ง', 'warning'); }
+        if (res === '0') { return this._alert.notify('กรุณาตรวจสอบอีเมลกับรหัสผ่านอีกครั้ง', 'warning'); }
         this._alert.notify('เข้าสู่ระบบสำเร็จ', 'success');
         this._router.navigate(['', AppURL.Auth, AuthURL.DbMember]);
       },
@@ -71,13 +71,14 @@ export class LoginComponent implements OnInit {
       .create(this.formRegister.value)
       .subscribe(res => {
         // Check Duplicate
-        if (res.errorInfo == null) {
+        if (res['errorInfo'] == null) {
           this._alert.notify('ลงทะเบียนสำเร็จ', 'success');
           setTimeout(() => {
             location.reload();
           }, 1800);
         } else {
-          if (res.errorInfo[1] == '1062') { return this._alert.notify('อีเมลนี้มีอยู่ในระบบแล้ว', 'warning'); }
+          // tslint:disable-next-line:triple-equals
+          if (res['errorInfo'][1] == '1062') { return this._alert.notify('อีเมลนี้มีอยู่ในระบบแล้ว', 'warning'); }
         }
       },
         err => {

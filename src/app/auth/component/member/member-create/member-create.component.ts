@@ -38,12 +38,13 @@ export class MemberCreateComponent {
     this._account
       .create(this.member)
       .subscribe(res => {
-       // Check Duplicate
-        if (res.errorInfo == null) {
+        // Check Duplicate
+        if (res['errorInfo'] == null) {
           this._alert.notify('เพิ่มสมาชิกสำเร็จ', 'success');
           this.dialogRef.close();
         } else {
-          if (res.errorInfo[1] == '1062') { return this._alert.notify('อีเมลนี้มีอยู่ในระบบแล้ว', 'warning'); }
+          // tslint:disable-next-line:triple-equals
+          if (res['errorInfo'][1] == '1062') { return this._alert.notify('อีเมลนี้มีอยู่ในระบบแล้ว', 'warning'); }
         }
       },
         err => {
